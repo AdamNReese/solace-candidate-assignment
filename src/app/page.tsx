@@ -70,26 +70,32 @@ export default function Home() {
 
   return (
     <main style={{ margin: "24px" }}>
-      <h1>Solace Advocates</h1>
+      <h1 className="font-bold text-center">Solace Advocates</h1>
       <br />
       <br />
       <div>
-        <p>Search</p>
+        <p className="font-medium">Search</p>
         <p>
           Searching for: <span id="search-term"></span>
         </p>
         <input
           id="search-input"
+          className="mr-2"
           style={{ border: "1px solid black" }}
           onChange={onChange}
         />
-        <button onClick={onClick}>Reset Search</button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+          onClick={onClick}
+        >
+          Reset Search
+        </button>
       </div>
       <br />
       <br />
       <table>
         <thead>
-          <tr>
+          <tr className="bg-slate-300">
             <th>First Name</th>
             <th>Last Name</th>
             <th>City</th>
@@ -102,7 +108,7 @@ export default function Home() {
         <tbody>
           {filteredAdvocates.map((advocate) => {
             return (
-              <tr key={advocate.id}>
+              <tr key={advocate.id} className="even:bg-gray-100 odd:bg-white">
                 <td>{advocate.firstName}</td>
                 <td>{advocate.lastName}</td>
                 <td>{advocate.city}</td>
