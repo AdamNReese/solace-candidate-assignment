@@ -54,6 +54,18 @@ export default function Home() {
   const onClick = () => {
     console.log(advocates);
     setFilteredAdvocates(advocates);
+
+    const searchInputElement = document.getElementById(
+      "search-input",
+    ) as HTMLInputElement;
+    if (searchInputElement) {
+      searchInputElement.value = "";
+    }
+
+    const searchTermElement = document.getElementById("search-term");
+    if (searchTermElement) {
+      searchTermElement.innerHTML = "";
+    }
   };
 
   return (
@@ -66,7 +78,11 @@ export default function Home() {
         <p>
           Searching for: <span id="search-term"></span>
         </p>
-        <input style={{ border: "1px solid black" }} onChange={onChange} />
+        <input
+          id="search-input"
+          style={{ border: "1px solid black" }}
+          onChange={onChange}
+        />
         <button onClick={onClick}>Reset Search</button>
       </div>
       <br />
